@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
+import { getProducts } from "../utils/shopify";
 
-export default function Home() {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -11,7 +13,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <main>
+        <div>
+          {products.map((product) => {
+            return (
+              <div key={product.id} className="space-y-5">
+                <Image
+                  src={product.image}
+                  alt={product.imageAlt}
+                  width={500}
+                  height={500}
+                />
+                <div className="">{product.title}</div>
+                <div className="">{product.price}</div>
+              </div>
+            );
+          })}
+        </div>
+      </main>
     </>
   );
 }
+export const getServerSideProps = async () => {
+  const products = await getProducts();
+  return {
+    props: { products }, // will be passed to the page component as props
+  };
+};
