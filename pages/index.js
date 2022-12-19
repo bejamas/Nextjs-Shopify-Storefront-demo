@@ -3,6 +3,8 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { getProducts } from "../utils/shopify";
+import Header from "../components/Header/Header";
+import ProductCard from "../components/ProductCard/ProductCard";
 
 export default function Home({ products }) {
   return (
@@ -13,21 +15,11 @@ export default function Home({ products }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <main>
-        <div>
+        <div className={styles.products}>
           {products.map((product) => {
-            return (
-              <div key={product.id} className="space-y-5">
-                <Image
-                  src={product.image}
-                  alt={product.imageAlt}
-                  width={500}
-                  height={500}
-                />
-                <div className="">{product.title}</div>
-                <div className="">{product.price}</div>
-              </div>
-            );
+            return <ProductCard key={product.id} product={product} />;
           })}
         </div>
       </main>
