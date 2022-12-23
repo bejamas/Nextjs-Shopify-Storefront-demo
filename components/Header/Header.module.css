@@ -1,16 +1,10 @@
-.header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .logo {
   text-decoration: none;
   font-size: 2rem;
   font-weight: 600;
   color: #272822;
 }
-
-.cart {
-  font-size: 1.6rem;
-  cursor: pointer;
+.footer {
+  text-align: center;
+  margin: auto 0;
 }

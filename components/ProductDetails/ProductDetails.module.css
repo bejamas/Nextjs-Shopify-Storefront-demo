@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+}
+.image {
+  width: 40%;
+  height: 600px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.cartbtn {
+  margin-top: 0.5rem;
+  background-color: #b47e4433;
+  color: #b47d44;
+  border: #b47e4433;
+  padding: 0.8rem;
+  cursor: pointer;
+  width: 100%;
+}
+.cartbtn:hover {
+  background-color: rgba(180, 126, 68, 0.092);
+}
+
+.cartbtn:active {
+  background-color: rgba(180, 126, 68, 0.43);
+}

@@ -1,12 +1,11 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
 import { getProducts } from "../utils/shopify";
-import Header from "../components/Header/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
+import Header from "../components/Header/Header";
 
-export default function Home({ products }) {
+export default function Home({ data }) {
+  const products = data.products.edges;
   return (
     <>
       <Head>
@@ -19,7 +18,7 @@ export default function Home({ products }) {
       <main>
         <div className={styles.products}>
           {products.map((product) => {
-            return <ProductCard key={product.id} product={product} />;
+            return <ProductCard key={product.node.id} product={product} />;
           })}
         </div>
       </main>
@@ -27,8 +26,8 @@ export default function Home({ products }) {
   );
 }
 export const getServerSideProps = async () => {
-  const products = await getProducts();
+  const data = await getProducts();
   return {
-    props: { products }, // will be passed to the page component as props
+    props: { data },
   };
 };

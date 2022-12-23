@@ -1,0 +1,35 @@
+.image {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  cursor: pointer;
+}
+.content {
+  margin-left: 0.8rem;
+}
+
+.container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.container li {
+  display: flex;
+}
+
+.container button {
+  margin-top: 0.5rem;
+  background-color: #b47e4433;
+  color: #b47d44;
+  border: #b47e4433;
+  padding: 0.8rem;
+  cursor: pointer;
+  width: 100%;
+}
+.container button:hover {
+  background-color: rgba(180, 126, 68, 0.092);
+}
+
+.container button:active {
+  background-color: rgba(180, 126, 68, 0.43);
+}
